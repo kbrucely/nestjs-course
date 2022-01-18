@@ -12,7 +12,7 @@ import { AuthModule } from './auth/auth.module';
       host: '127.0.0.1',
       port: 5432,
       username: 'postgres',
-      password: '',
+      password: process.env.POSTGRES_PASSWORD,
       database: 'task-management',
       autoLoadEntities: true,
       synchronize: true,
