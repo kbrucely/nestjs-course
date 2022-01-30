@@ -1,15 +1,15 @@
 import { EntityRepository, Repository } from "typeorm";
 import { CreateTaskDto } from "./dto/create-task.dto";
 import { Task } from "./task.entity";
-import { User } from 'src/auth/user.entity';
+import { User } from '../auth/user.entity';
 import { TaskStatus } from "./task-status.enum";
 import { GetTasksFilterDto } from "./dto/get-tasks-filter.dto";
 import { InternalServerErrorException, Logger } from '@nestjs/common';
 
 @EntityRepository(Task)
-export class TaskRepository extends Repository<Task> {
+export class TasksRepository extends Repository<Task> {
 
-    private logger = new Logger('TaskRepository');
+    private logger = new Logger('TasksRepository');
 
     async getTasks(filterDto: GetTasksFilterDto, user: User): Promise <Task[]>{
         const { status, search } = filterDto;
